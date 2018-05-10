@@ -1,0 +1,89 @@
+<view class="wrap">
+    <view class="location-weather">
+        <view class="location">
+            <image src='../../images/home/position.gif' />
+            <text>江西农大</text>
+        </view>
+        <view class='weather'>
+            <view class='weather-text'>
+                <text>26℃</text>
+                <text>多云</text>
+            </view>
+            <image src='../../images/home/weather.gif' />
+        </view>
+    </view>
+
+    <view class='search'>
+        <input placeholder='搜索商家、商品名称' />
+    </view>
+
+    <view>
+        <image class='eat-commend' src='../../images/home/commend.gif' />
+    </view>
+    <hr/>
+    <view class='view-3'>
+        <image src='../../images/home/deliciousfood.gif' />
+        <image src='../../images/home/heart.gif' />
+        <image src='../../images/home/fruits.gif' />
+    </view>
+    <hr/>
+    <view class='choice'>
+        <text class='choice-1'>综合排序</text>
+        <view class='choice-2'>
+            <text>销量最高</text>
+            <text>距离最近</text>
+            <text>筛选</text>
+        </view>
+    </view>
+    <block wx:for="{{resturants}}" wx:for-item="resturant" >
+        <view class='resturant' data-id="{{resturant.id}}" catchtap='toOrder'
+        data-foods="{{resturant.food}}">
+            <view class='resturant-about'>
+                <image class='resturant-icon' src='{{resturant.icon}}' />
+                <view class='resturant-detail'>
+                    <view class='returant-name'>{{resturant.name}}</view>
+                    <view class='star-sale'>
+                        <block wx:for="{{5}}">
+                            <view>
+                                <image class='star' src='/images/home/star.png' />
+                            </view>
+                        </block>
+                        <view>
+                            <text class='value'>{{resturant.star}}</text>
+                            <text class='sale'>月售{{resturant.sale}}单</text>
+                        </view>
+                    </view>
+                    <view class='send-time-dis'>
+                        <view>
+                            <text>￥{{resturant.least_price}}起送</text>|
+                            <text>配送费{{resturant.for_tip}}</text>
+                        </view>
+                        <view class='time-dis'>
+                            <text>{{resturant.distance}}m</text>|
+                            <text>{{resturant.time}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class='client-discount'>
+                <view class='youhui'>
+                    <image class='cut' src='/images/sj/discount.jpg' />
+                    <text>{{resturant.discount.cut}}</text>
+                </view>
+                <view class='new-client'>
+                    <image class='cut' src='../../images/first/my.jpg' />
+                    <text>{{resturant.discount.new_client}}</text>
+                </view>
+            </view>
+            <view class='food'>
+                <block wx:for="{{resturant.food_3}}" wx:for-item="food">
+                    <view class='food-detail'>
+                        <image class='food-image' src='{{food.url}}' />
+                        <text class='food-name'>{{food.name}}</text>
+                        <text class='food-price'>￥{{food.price}}</text>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </block>
+</view>

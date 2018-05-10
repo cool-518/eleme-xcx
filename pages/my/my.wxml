@@ -1,0 +1,46 @@
+<!--pages/my/my.wxml-->
+<view>
+    <view>
+        <image />
+        <view>
+            <text>3****e</text>
+            <view>
+                <image/>
+                <text>137****6814</text>
+            </view>
+        </view>
+    </view>
+    <view>
+        <view>
+            <text>0元</text>
+            <text>余额</text>
+        </view>
+        <view>
+            <text>1个</text>
+            <text>红包</text>
+        </view>
+        <view>
+            <text>0个</text>
+            <text>金币</text>
+        </view>
+    </view>
+    <view>
+        <view>
+            <image/>
+            <text>收货地址</text>
+        </view>
+        <view>
+            <image/>
+            <text>我的心愿卡</text>
+        </view>
+        <view>
+            <image/>
+            <text>服务中心</text>
+        </view>
+        <view>
+            <image/>
+            <text>分享拿5元现金</text>
+        </view>
+    </view>
+    <view>退出登录</view>
+</view>

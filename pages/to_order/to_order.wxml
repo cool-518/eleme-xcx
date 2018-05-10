@@ -1,0 +1,107 @@
+<!-- 选商品下单页面 -->
+<view class='all'>
+    <view class='wrap'>
+        <view class='seller'>
+            <view class='seller-main'>
+                <view>
+                    <image class='seller-icon' src='{{restaurant.icon}}' />
+                    <!-- 不加view则会导致图片消失 -->
+                </view>
+                <view class='seller-message'>
+                    <view class='seller-name'>
+                        <text>{{restaurant.name}}</text>
+                    </view>
+                    <view class='send-time-tip'>
+                        <text>{{restaurant.discount.cut}}</text>
+                    </view>
+                    <view class='attention'>
+                        <text>{{restaurant.discount.new_client}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class='activity'>
+                <view class='discount-type'>
+                    <image class='discount-img' src='/images/sj/discount.jpg' />
+                    <!-- 往往图片会严重影响布局，最好先把图片大小先设置一下 -->
+                    <text class='discount-text'>满40减1</text>
+                </view>
+                <text class='more-activity'>5个活动</text>
+            </view>
+        </view>
+        <view class='list-nav'>
+            <text class='list-gooods'>商品</text>
+            <text class='list-value'>评价</text>
+            <text class='list-value-num'>({{restaurant.star}})</text>
+            <button class='together'>
+                <text>拼单</text>
+            </button>
+        </view>
+        <view class='category'>
+            <view class='good-category'>
+                <block wx:for="{{list_left}}" wx:for-index="left_index" wx:for-item="item_left">
+                    <view data-leftindex="{{left_index}}" catchtap="onFindMore">
+                        <text class='category-left'>{{item_left}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class='category-right'>
+                <view class='type-fasinate'>
+                    <text class='category-type'>{{list_left_item}}</text>
+                    <text class='to-fasinate'>大家喜欢吃，才叫真好吃</text>
+                </view>
+                <block wx:for="{{restaurant_food}}" wx:for-index="item_index" wx:for-item="item">
+                    <view class='category-right-detail'>
+                        <view>
+                            <image class='item-img' src='{{item.url}}' />
+                        </view>
+                        <view class='item-detail'>
+                            <view class='item-name'>
+                                <view>
+                                    <text>{{item.name}}</text>
+                                </view>
+                            </view>
+                            <view class='sale-eval'>月售{{item.single_sale}}份，评分{{item.single_value}}</view>
+                            <view class='send'>
+                                <text class='send-least'>{{item.price}}元</text>
+                                <view class='choose'>
+                                    <view class='choose_delete'>
+                                        <image class='choose-img' catchtap="onDeleItem" src='{{item.deleteicon}}' data-foodid="{{item_index}}" />
+                                    </view>
+                                    <input class='itemNum' value="{{item.count}}" type="default" />
+                                    <view class='choose_add '>
+                                        <image class='choose-img' catchtap="onAddItem" src='{{item.addicon}}' data-foodid="{{item_index}}" />
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <view class='bottom'>
+        <!--根据时间切换营业状态 -->
+        <view class='bottom-selling'>
+            <view wx:if="{{count==0}}" class='car'>
+                <image class='shopping-car' src='/images/sj/car-0.jpg' />
+            </view>
+             <view wx:else  class='car'>
+                <view class='count'> {{count}}</view>
+                <image class='shopping-car' src='/images/sj/car-1.jpg' />
+            </view>
+            <view class='chose'>
+                <text wx:if="{{total_price ==0}}">未购商品</text>
+                <view class='total-price' wx:else>
+                    <text >商品{{total_price}}元，另需要配送费1元</text>
+                </view>
+            </view>
+            <view class='send-least-2 enough' wx:if="{{diff<=0}}" bindtap = "onPay">
+                <text >去结算</text>
+            </view>
+            <view class='send-least-2 ' wx:else>
+                <text>还差{{diff}}起送</text>
+            </view>
+        </view>
+        <view class='bottom-done'>商家正在休息</view>
+    </view>
+</view>

@@ -1,0 +1,40 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/to_order/to_order",
+        "pages/menu/menu",
+        "pages/location/location",
+        "pages/my/my",
+        "pages/ordered/ordered",
+        "pages/index/index",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "white",
+        "navigationBarBackgroundColor": "#0097ff",
+        "navigationBarTitleText": "饿了吗",
+        "navigationBarTextStyle": "#FFC640"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页",
+                "iconPath": "images/first/home.jpg",
+                "selectedIconPath": "images/first/home.jpg"
+            },
+            {
+                "pagePath": "pages/menu/menu",
+                "text": "订单",
+               "iconPath": "images/first/order.jpg",
+            "selectedIconPath": "images/first/order-selected.jpg"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+               "iconPath": "images/first/my.jpg",
+            "selectedIconPath": "images/first/my-selected.jpg"
+            }
+        ]
+    }
+}
